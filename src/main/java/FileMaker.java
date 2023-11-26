@@ -25,7 +25,6 @@ public class FileMaker {
             Files.writeString(Paths.get(filePath), text);
 
         } catch (IOException e){
-
             System.out.println("Error");
             e.printStackTrace();
         }
