@@ -2,18 +2,24 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class ToUpperCaseMaker {
+public class ToUpperCaseMaker extends FileMaker{
     public static void main(String[] args) {
-        getUpperCase("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt", "E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\output.txt");
+
+        createFile("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\output2.txt");
+        writeInFile("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\output2.txt", getUpperCase("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt"));
+
+
     }
-    public static void getUpperCase(String filePath, String newFilePath){
+    public static String getUpperCase(String filePath){
         try {
             String fileContent = Files.readString(Path.of(filePath));
             String fileContentUpperCase = fileContent.toUpperCase();
-            File file = new File(newFilePath);
-            Files.writeString(Path.of(newFilePath), fileContentUpperCase);
-        } catch (IOException e) {
+            return fileContentUpperCase;
+
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
 }
