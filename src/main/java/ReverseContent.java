@@ -7,35 +7,28 @@ import java.nio.file.Paths;
 
 public class ReverseContent {
     public static void main(String[] args) {
-        getReversedFileContent("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt");
-        showReversedContent("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt");
+
+        final String PATH = "E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt";
+
+        String content = readFromFile(PATH);
+        reverseContent(content);
+
     }
 
-    public static void getReversedFileContent(String filePath){
+    public static String readFromFile(String path){
         try {
-            String contentOfTheFile = Files.readString(Paths.get(filePath));
-            int allLinesCount = (int) contentOfTheFile.lines().count();
-            while (allLinesCount >= 1){
-                String line = Files.readAllLines(Path.of(filePath)).get(allLinesCount - 1);
-                allLinesCount--;
-            }
-        }
-        catch (IOException e) {
-        throw new RuntimeException(e);
-        }
-    }
-    public static void showReversedContent(String filePath){
-        try {
-            String contentOfTheFile = Files.readString(Paths.get(filePath));
-            int allLinesCount = (int) contentOfTheFile.lines().count();
-            while (allLinesCount >= 1){
-                String line = Files.readAllLines(Path.of(filePath)).get(allLinesCount - 1);
-                System.out.println(line);
-                allLinesCount--;
-            }
-        }
-        catch (IOException e) {
+            return Files.readString(Paths.get(path));
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public static void reverseContent(String content){
+        String[] split = content.split(System.lineSeparator());
+        for (int i = split.length-1;i >= 0; i--){
+            System.out.println(split[i]);
+        }
+
+    }
+
 }
