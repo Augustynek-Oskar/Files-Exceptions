@@ -3,10 +3,10 @@ public class PeselChecker {
         boolean numeric = true;
 
 
-        getPeselLength("01261700298");
+        checkIfPeselLengthIsCorrect("01261700298");
         getPeselDataTypeValidation("1236789011");
     }
-    public static void getPeselLength(String pesel){
+    public static void checkIfPeselLengthIsCorrect(String pesel){
         try {
             if (pesel.length() != 11){
                 throw new IllegalLengthException("Incorrect length!");
