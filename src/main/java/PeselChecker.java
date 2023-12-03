@@ -1,23 +1,18 @@
 public class PeselChecker {
-    public static void main(String[] args) {
-        boolean numeric = true;
+    public static void main(String[] args) throws IllegalLengthException {
 
-
-        checkIfPeselLengthIsCorrect("01261700298");
+        checkIfPeselLengthIsCorrect("12345678901");
         getPeselDataTypeValidation("1236789011");
+
     }
-    public static void checkIfPeselLengthIsCorrect(String pesel){
-        try {
-            if (pesel.length() != 11){
-                throw new IllegalLengthException("Incorrect length!");
-            }
-            else {
-                System.out.println("Length is correct");
-            }
-        }
-        catch (IllegalLengthException e){
-            System.out.println(e.getMessage());
-        }
+    public static void checkIfPeselLengthIsCorrect(String pesel) throws IllegalLengthException {
+
+        if (pesel == null) throw new IllegalLengthException("Pesel cannot be null!");
+
+        if (pesel.length() != 11) throw new IllegalLengthException("Incorrect length!");
+
+        else System.out.println("Length is correct");
+
     }
     public static void getPeselDataTypeValidation(String pesel) {
         try {
