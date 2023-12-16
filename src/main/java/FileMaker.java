@@ -7,6 +7,7 @@ public class FileMaker {
 
         createFile("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt");
         writeInFile("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt", "Kurs \nJava \nLekcja6 \nPliki \nWyjątki \nPliki \nKoniec pliku" );
+        WordSearcher.searchForWord("E:\\PROGRAMOWANIE\\KURSY\\PROJEKTY\\Files-Exceptions\\src\\main\\resources\\data.txt", "Java");
 
     }
     public static void createFile(String filePath){
